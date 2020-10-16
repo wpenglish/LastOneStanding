@@ -14,9 +14,10 @@ function App(){
     return(
         <main>
             <img src={header} className='header'></img>
+            <h1 style={{"color":"white"}}>Git test</h1>
             <Switch>
-                <Route path='/' component={Data} exact/>
-                <Route path='/game' component={GameContainer} />
+                <Route path='/LastOneStanding' component={Data} exact/>
+                <Route path='/LastOneStanding/game' component={GameContainer} />
             </Switch>
         </main>
     )
