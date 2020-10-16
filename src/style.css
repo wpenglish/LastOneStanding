@@ -9,6 +9,66 @@ h1 {
     font-family: Arial;
 }
 
+h3 {
+    color: white;
+    font-family: Arial;
+}
+
+p {
+    color: white;
+    font-family: Arial;
+}
+
+.dataDiv{
+    width: 60%;
+    margin: 30px 20% 0 20%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.rulesDiv{
+    width: 60%;
+    margin: 50px 20% 0 20%;
+}
+
+.rules{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.inside{
+    display: block;
+    margin-left: 5%;
+}
+
+.inside2{
+    display: block;
+    margin-left: auto;
+    margin-right: 20%;
+}
+
+#itemsArea{
+    width:90%;
+    height: 400px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 2px solid #4D90A9;
+    border-radius: 2px;
+    color: white;
+}
+
+.item{
+    margin-top: 0px;
+    margin-bottom: 1px;
+}
+
+.info{
+
+}
+
 #root{
     width: 100%;
 
@@ -54,6 +114,7 @@ h1 {
     border-radius: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
 }
 
 .killed{
@@ -64,6 +125,29 @@ h1 {
     border-radius: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.playerTurn{
+    min-height: 50px;
+    width: 90%;
+    justify-content: center;
+    border: 2px solid #4D90A9;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.round{
+    min-height: 50px;
+    width: 90%;
+    justify-content: center;
+    border: 2px solid #4D90A9;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
 }
 
 .app{

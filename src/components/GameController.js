@@ -145,9 +145,11 @@ class GameController extends React.Component{
 
     handleNewShuffle = () =>{
         if(this.gameCards.length <= 2){
+            this.props.changeRound("Final")
             this.finalVote(this.gameCards)
         }
         else{
+            this.props.changeRound(this.props.round + 1)
             this.shuffleNewDeck()
         }
     }

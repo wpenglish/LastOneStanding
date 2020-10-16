@@ -10,10 +10,18 @@ function GameContainer(){
 
     const [lastCardKilled, setLastCardKilled] = useState("")
     const [lastCardSaved, setLastCardSaved] = useState("")
+    const [round, setRound] = useState(0)
+    const [playerTurn, setPlayerTurn] = useState("5")
 
     return(
         <div className='appContainer'>
             <div className='prev'>
+                <div className='round'>
+                    <h1 style={{"text-align": "center", "margin":"10px 0 10px 0"}}>Round<br /> {round}</h1>
+                </div>
+                <div className='playerTurn'>
+                    <h1 style={{"text-align": "center", "margin":"10px 0 10px 0"}}>Player's Turn<br /> {playerTurn}</h1>
+                </div>
                 <div className='killed'>
                     <h1 style={{"text-align": "center"}}>Last game killed<br /> {lastCardKilled}</h1>
                 </div>
@@ -22,7 +30,7 @@ function GameContainer(){
                 </div>
             </div>
             <div className="app">
-                <GameController changeKilledText={setLastCardKilled} changeSavedText={setLastCardSaved} />
+                <GameController changeKilledText={setLastCardKilled} changeSavedText={setLastCardSaved} changeRound={setRound} changePlayerTurn={setPlayerTurn} round={round}/>
             </div>
         </div>
     )
