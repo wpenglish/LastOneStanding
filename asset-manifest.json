@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/LastOneStanding/static/css/main.2a71b96f.chunk.css",
+    "main.js": "/LastOneStanding/static/js/main.7551a968.chunk.js",
+    "main.js.map": "/LastOneStanding/static/js/main.7551a968.chunk.js.map",
+    "runtime-main.js": "/LastOneStanding/static/js/runtime-main.3e4f5b44.js",
+    "runtime-main.js.map": "/LastOneStanding/static/js/runtime-main.3e4f5b44.js.map",
+    "static/js/2.d8f1bae1.chunk.js": "/LastOneStanding/static/js/2.d8f1bae1.chunk.js",
+    "static/js/2.d8f1bae1.chunk.js.map": "/LastOneStanding/static/js/2.d8f1bae1.chunk.js.map",
+    "index.html": "/LastOneStanding/index.html",
+    "precache-manifest.e0117c1a927e5deff3199eef5de3b96b.js": "/LastOneStanding/precache-manifest.e0117c1a927e5deff3199eef5de3b96b.js",
+    "service-worker.js": "/LastOneStanding/service-worker.js",
+    "static/css/main.2a71b96f.chunk.css.map": "/LastOneStanding/static/css/main.2a71b96f.chunk.css.map",
+    "static/js/2.d8f1bae1.chunk.js.LICENSE.txt": "/LastOneStanding/static/js/2.d8f1bae1.chunk.js.LICENSE.txt",
+    "static/media/header2.png": "/LastOneStanding/static/media/header2.fd32260c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3e4f5b44.js",
+    "static/js/2.d8f1bae1.chunk.js",
+    "static/css/main.2a71b96f.chunk.css",
+    "static/js/main.7551a968.chunk.js"
+  ]
+}
