@@ -15,8 +15,8 @@ function App(){
         <main>
             <img src={header} className='header'></img>
             <Switch>
-                <Route path='/LastOneStanding' component={Data} exact/>
-                <Route path='/LastOneStanding/game' component={GameContainer} />
+                <Route path='/LastOneStanding' component={Data} />
+                <Route path='/game' component={GameContainer} />
             </Switch>
         </main>
     )
