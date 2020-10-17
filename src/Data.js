@@ -6,7 +6,8 @@ function Data(){
 
     const saveList = () =>{
         window.$itemList = document.getElementById("itemsArea").value
-        console.log(window.$itemList)
+        window.$playerNum = document.getElementById("playerArea").value
+        console.log(window.$playerNum)
     }
 
     return(
@@ -14,6 +15,7 @@ function Data(){
             <div className="dataDiv">
                 <div className="inside">
                     <textarea id="itemsArea" placeholder="Put items here..."></textarea>
+                    <input type="number" step="1" placeholder="How many players?" id="playerArea" min="1" max="20"></input>
                     <br/>
                     <Link to="/game">
                         <button className="dataSubmit" onClick={saveList}>Submit</button>

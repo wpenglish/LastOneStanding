@@ -10,6 +10,7 @@ class GameController extends React.Component{
     constructor(props) {
         super(props)
         this.constructDeck()
+        this.constructPlayers()
     }
 
     state = { show: false,
@@ -25,13 +26,16 @@ class GameController extends React.Component{
         shuffle: false,
         vote: false,
         winShow: false,
-        winner: ""
+        winner: "",
     }
 
     upCards=[]
     downCards=[]
     list = []
+    playerOrder = []
+    playerNum = parseInt(window.$playerNum)
     gameCards
+    playerIndex = 0
 
     showChoiceEvent = (gameName, gameID) => {
       this.setState({ show: true, gameOne: gameName, gameOneID: gameID, gameTwoID: "1"});
@@ -60,6 +64,22 @@ class GameController extends React.Component{
         this.gameCards = this.list.map(game => {
             return(<Card key={game[1]} id={game[1]} name={game[0]} handleClick={this.showChoiceEvent}/>)
         })
+    }
+
+    constructPlayers = () => {
+        for (let index = 1; index < this.playerNum + 1; index++ ){
+            this.playerOrder.push(index)
+        }
+    }
+
+    nextPlayerTurn = () => {
+        if(this.playerIndex !== this.playerOrder.length - 1){
+            this.playerIndex = this.playerIndex + 1
+        }
+        else{
+            this.playerIndex = 0
+        }
+        this.props.changePlayerTurn(this.playerOrder[this.playerIndex])
     }
 
 
@@ -131,7 +151,7 @@ class GameController extends React.Component{
         if(this.downCards.length === 0){
             this.handleNewShuffle()
         }
-
+        this.nextPlayerTurn()
         this.hideChoiceEvent()
     }
 

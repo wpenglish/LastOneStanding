@@ -3,8 +3,10 @@ import React from "react";
 const Choice = ({ id, otherGameID, name, down, handleClick }) => {
 
   return (
-    <div className="choice">
-        <button onClick={() => handleClick(id, otherGameID, down)}>{name}</button>
+    <div style={{"display":"flex"}}>
+        <button className="card" onClick={() => handleClick(id, otherGameID, down)} style={{"margin-left":"auto", "margin-right": "auto"}}>
+            <h1>{name}</h1>
+        </button>
     </div>
   );
 };

@@ -11,7 +11,7 @@ function GameContainer(){
     const [lastCardKilled, setLastCardKilled] = useState("")
     const [lastCardSaved, setLastCardSaved] = useState("")
     const [round, setRound] = useState(0)
-    const [playerTurn, setPlayerTurn] = useState("5")
+    const [playerTurn, setPlayerTurn] = useState(1)
 
     return(
         <div className='appContainer'>
@@ -30,7 +30,7 @@ function GameContainer(){
                 </div>
             </div>
             <div className="app">
-                <GameController changeKilledText={setLastCardKilled} changeSavedText={setLastCardSaved} changeRound={setRound} changePlayerTurn={setPlayerTurn} round={round}/>
+                <GameController changeKilledText={setLastCardKilled} changeSavedText={setLastCardSaved} changeRound={setRound} changePlayerTurn={setPlayerTurn} player={playerTurn} round={round}/>
             </div>
         </div>
     )

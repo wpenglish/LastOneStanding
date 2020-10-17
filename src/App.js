@@ -8,6 +8,7 @@ import './style.css'
 import header from "./header2.png"
 
 window.$itemList = ''
+window.$playerNum = ''
 
 function App(){
 
