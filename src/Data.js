@@ -15,7 +15,7 @@ function Data(){
             <div className="dataDiv">
                 <div className="inside">
                     <textarea id="itemsArea" placeholder="Put items here..."></textarea>
-                    <input type="number" step="1" placeholder="How many players?" id="playerArea" min="1" max="20"></input>
+                    <input type="number" step="1" placeholder="How many players?" id="playerArea" min="2" max="20"></input>
                     <br/>
                     <Link to="/game">
                         <button className="dataSubmit" onClick={saveList}>Submit</button>

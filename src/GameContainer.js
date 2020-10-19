@@ -10,8 +10,8 @@ function GameContainer(){
 
     const [lastCardKilled, setLastCardKilled] = useState("")
     const [lastCardSaved, setLastCardSaved] = useState("")
-    const [round, setRound] = useState(0)
-    const [playerTurn, setPlayerTurn] = useState(1)
+    const [round, setRound] = useState(1)
+    const [playerTurn, setPlayerTurn] = useState("1 > 2")
 
     return(
         <div className='appContainer'>

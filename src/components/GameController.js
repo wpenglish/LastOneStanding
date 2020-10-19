@@ -36,6 +36,7 @@ class GameController extends React.Component{
     playerNum = parseInt(window.$playerNum)
     gameCards
     playerIndex = 0
+    secondPlayerIndex = 1
 
     showChoiceEvent = (gameName, gameID) => {
       this.setState({ show: true, gameOne: gameName, gameOneID: gameID, gameTwoID: "1"});
@@ -73,13 +74,20 @@ class GameController extends React.Component{
     }
 
     nextPlayerTurn = () => {
-        if(this.playerIndex !== this.playerOrder.length - 1){
+        if(this.playerIndex == this.playerOrder.length - 2){
             this.playerIndex = this.playerIndex + 1
+            this.secondPlayerIndex = 0
+        }
+        else if(this.playerIndex == this.playerOrder.length - 1){
+            this.playerIndex = 0
+            this.secondPlayerIndex = 1
         }
         else{
-            this.playerIndex = 0
+            this.playerIndex = this.playerIndex + 1
+            this.secondPlayerIndex = this.secondPlayerIndex + 1
         }
-        this.props.changePlayerTurn(this.playerOrder[this.playerIndex])
+
+        this.props.changePlayerTurn(this.playerOrder[this.playerIndex].toString() + " > " + this.playerOrder[this.secondPlayerIndex].toString())
     }
 
 
@@ -104,6 +112,7 @@ class GameController extends React.Component{
             return(game)
         })
         this.setState({ refresh: "true" });
+
     }
 
     removeGames = (gameOne, gameTwo, down) => {
@@ -171,11 +180,12 @@ class GameController extends React.Component{
         else{
             this.props.changeRound(this.props.round + 1)
             this.shuffleNewDeck()
+            this.nextPlayerTurn()
+            this.playerOrder.reverse()
         }
     }
 
     finalVote = () =>{
-        console.log("Final Vote")
         this.showFinalVote(this.gameCards.[0].props.name, this.gameCards.[0].props.id, this.gameCards.[1].props.name, this.gameCards.[1].props.id)
     }
 
