@@ -5,6 +5,7 @@ import FinalVote from "./FinalVote"
 import Card from "./Card"
 import gameData from "../gameData"
 import WinScreen from "./Winning.js"
+import SaveScreen from "./Save"
 
 class GameController extends React.Component{
     constructor(props) {
@@ -26,6 +27,7 @@ class GameController extends React.Component{
         shuffle: false,
         vote: false,
         winShow: false,
+        saveShow: false,
         winner: "",
     }
 
@@ -37,6 +39,7 @@ class GameController extends React.Component{
     gameCards
     playerIndex = 0
     secondPlayerIndex = 1
+    saveLeft = []
 
     showChoiceEvent = (gameName, gameID) => {
       this.setState({ show: true, gameOne: gameName, gameOneID: gameID, gameTwoID: "1"});
@@ -52,6 +55,14 @@ class GameController extends React.Component{
 
     hideFinalVote = (name) => {
       this.setState({ vote: false, winShow: true, winner: name});
+    }
+
+    showSaveChoice = () => {
+      this.setState({ saveShow: true });
+    }
+
+    hideSaveChoice = () => {
+      this.setState({ saveShow: false});
     }
 
     constructDeck = () => {
@@ -70,6 +81,7 @@ class GameController extends React.Component{
     constructPlayers = () => {
         for (let index = 1; index < this.playerNum + 1; index++ ){
             this.playerOrder.push(index)
+            this.saveLeft.push(index)
         }
     }
 
@@ -164,10 +176,13 @@ class GameController extends React.Component{
         this.hideChoiceEvent()
     }
 
-    saveLastKill = () => {
-        if(!this.state.lastGameKilledSaved){
+    saveLastKill = (id) => {
+        if(!this.state.lastGameKilledSaved && this.state.lastGameKilledCard !== ""){
             this.gameCards.push(this.state.lastGameKilledCard)
             this.setState({lastGameKilledSaved: true})
+            this.saveLeft.splice(this.saveLeft.findIndex(p => p == id), 1)
+            this.props.changeKilledText("")
+            this.props.changeSavedText(this.state.lastGameKilledCard.props.name)
         }
         console.log(this.gameCards)
     }
@@ -183,6 +198,12 @@ class GameController extends React.Component{
             this.nextPlayerTurn()
             this.playerOrder.reverse()
         }
+    }
+
+    useSave = (id) => {
+        this.saveLastKill(id)
+
+        this.hideSaveChoice()
     }
 
     finalVote = () =>{
@@ -202,12 +223,14 @@ class GameController extends React.Component{
     render(){
         return(
             <div className='game'>
+                <button style={{"width":"200px"}} className="closeButton" onClick={this.showSaveChoice}>Save last game</button>
                 <div className='gameCards'>
                     {this.upCards}
                 </div>
                 <ChoiceEvent show={this.state.show} handleClose={this.hideChoiceEvent} gameOne={this.state.gameOne} gameOneID={this.state.gameOneID} handleClickChoice={this.removeGames}/>
                 <FinalVote show={this.state.vote} handleClose={this.hideFinalVote} gameOne={this.state.gameOne} gameOneID={this.state.gameOneID} gameTwo={this.state.gameTwo} gameTwoID={this.state.gameTwoID} handleClickChoice={this.showWinningCard}/>
                 <WinScreen show={this.state.winShow} name={this.state.winner}/>
+                <SaveScreen show={this.state.saveShow} handleClose={this.hideSaveChoice} saveLeft={this.saveLeft} handleClickChoice={this.useSave}/>
 
             </div>
         )
